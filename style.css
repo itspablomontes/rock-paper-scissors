@@ -1,0 +1,82 @@
+
+body{
+    background-color: #07090c;
+    color: #F0EFF4;
+    font-family: 'Poppins', sans-serif;
+}
+.game-title{
+    display: flex;
+    justify-content: center;
+}
+.scoreboard{
+    display: flex;
+    justify-content: center;
+    gap: 20px;
+}
+.player-wins{
+    font-size: 18px;
+    font-weight: bold;
+    color: greenyellow;
+}
+.computer-wins{
+    font-size: 18px;
+    font-weight: bold;
+    color: red;
+}
+.options-container{
+    display: flex;
+    justify-content: space-evenly;
+    margin-bottom: 150px;
+}
+
+.rock img{
+    width: 300px;
+}
+
+.paper img{
+    width: 300px;
+}
+.rock, .paper, .scissors{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    text-align: center;
+    font-size: 18px;
+    font-weight: bold;
+}
+.scissors img{
+    width: 300px;
+}
+.bottom-container{
+    display: flex;
+    flex-direction: column ;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+}
+
+.warning{
+    font-size: 25px;
+    font-weight: bold;
+}
+#play-again{
+    background-color: #3188f3;
+    border: none;
+    border-radius: 5px;
+    color: #F0EFF4;
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
+#play-again:hover{
+    background-color: #F0EFF4;
+    color: #3188f3;
+    scale: 1.1;
+}
+.instructions{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin-top: 100px;
+}
