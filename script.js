@@ -8,15 +8,15 @@ function getPlayerChoice(){
     switch (playerChoice) {
         case 1:
             userChoice = "Rock"
-            console.log(`You chose ${playerChoice}`)
+            console.log(`You chose Rock`)
             break;
         case 2:
             userChoice = "Paper"
-            console.log(`You chose ${playerChoice}`)
+            console.log(`You chose Paper`)
             break;
         case 3:
             userChoice = "Scissors"
-            console.log(`You chose ${playerChoice}`)
+            console.log(`You chose Scissors`)
             break;
         default:
             console.log("Invalid value, please restart the page and choose a valid one")
@@ -44,27 +44,27 @@ function getComputerChoice(){
 function getResult(){
     if(userChoice == "Rock" && computerChoice == "Rock"){
         console.log("Draw!")
-    }else if (userChoice = "Rock" && computerChoice == "Paper"){
-        computerWins = computerWins + 1
+    }else if (userChoice == "Rock" && computerChoice == "Paper"){
+        computerWins == computerWins + 1
         console.log("You lost!")
-    }else if (userChoice = "Rock" && computerChoice == "Scissors"){
+    }else if (userChoice == "Rock" && computerChoice == "Scissors"){
         playerWins = playerWins + 1
         console.log("You won!")
-    }else if (userChoice = "Paper" && computerChoice == "Rock"){
+    }else if (userChoice == "Paper" && computerChoice == "Rock"){
         playerWins = playerWins + 1
         console.log("You won!")
-    }else if (userChoice = "Paper" && computerChoice == "Paper"){
+    }else if (userChoice == "Paper" && computerChoice == "Paper"){
         console.log("Draw!")
-    }else if (userChoice = "Paper" && computerChoice == "Scissors"){
+    }else if (userChoice == "Paper" && computerChoice == "Scissors"){
+        computerWins == computerWins + 1
+        console.log("You lost!")
+    }else if (userChoice == "Scissors" && computerChoice == "Rock"){
         computerWins = computerWins + 1
         console.log("You lost!")
-    }else if (userChoice = "Scissors" && computerChoice == "Rock"){
-        computerWins = computerWins + 1
-        console.log("You lost!")
-    }else if (userChoice = "Scissors" && computerChoice == "Paper"){
+    }else if (userChoice == "Scissors" && computerChoice == "Paper"){
         playerWins = playerWins + 1
         console.log("You won!")
-    }else if (userChoice = "Scissors" && computerChoice == "Scissors"){
+    }else if (userChoice == "Scissors" && computerChoice == "Scissors"){
         console.log("Draw!")
     }
     }
