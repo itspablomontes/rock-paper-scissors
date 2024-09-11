@@ -1,3 +1,7 @@
+#options-container, #play-again, #result, #warning, #time-counter, #play-again{
+    display: none;
+}
+
 
 body{
     background-color: #07090c;
@@ -69,7 +73,21 @@ body{
     font-weight: bold;
     font-size: 18px;
 }
+#play{
+    background-color: #3188f3;
+    border: none;
+    border-radius: 5px;
+    color: #F0EFF4;
+    padding: 15px 30px;
+    font-weight: bold;
+    font-size: 18px;
+}
 #play-again:hover{
+    background-color: #F0EFF4;
+    color: #3188f3;
+    scale: 1.1;
+}
+#play:hover{
     background-color: #F0EFF4;
     color: #3188f3;
     scale: 1.1;

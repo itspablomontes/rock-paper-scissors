@@ -1,7 +1,20 @@
 let playerWins =  0;
 let computerWins = 0;
-let playerChoice
+let playerChoice;
 let computerChoice;
+
+const choiceContainer = document.getElementById("options-container");
+const playButton = document.getElementById('play');
+const playAgainButton = document.getElementById('play-again');
+const displayChoices = document.getElementById('choices');
+const displayResult = document.getElementById('result')
+const warningMessage = document.getElementById('warning')
+const timeCounterMessage = document.getElementById('time-counter')
+
+
+playButton.addEventListener('click', runGame)
+playAgainButton.addEventListener('click', tryAgain)
+
 function getPlayerChoice(choice){
     switch (choice) {
         case "Rock":
@@ -22,7 +35,7 @@ function getPlayerChoice(choice){
     }
     getComputerChoice();
     getResult();
-}
+};
 function getComputerChoice(){
     computerChoice = Math.floor(Math.random()* 3) + 1;
     switch(computerChoice){
@@ -41,45 +54,40 @@ function getComputerChoice(){
     }
 };
 
-function getResult(){
-    if(playerChoice == "Rock" && computerChoice == "Rock"){
-        console.log("Draw!")
-    }else if (playerChoice == "Rock" && computerChoice == "Paper"){
-        computerWins == computerWins + 1
-        console.log("You lost!")
-    }else if (playerChoice == "Rock" && computerChoice == "Scissors"){
-        playerWins = playerWins + 1
-        console.log("You won!")
-    }else if (playerChoice == "Paper" && computerChoice == "Rock"){
-        playerWins = playerWins + 1
-        console.log("You won!")
-    }else if (playerChoice == "Paper" && computerChoice == "Paper"){
-        console.log("Draw!")
-    }else if (playerChoice == "Paper" && computerChoice == "Scissors"){
-        computerWins == computerWins + 1
-        console.log("You lost!")
-    }else if (playerChoice == "Scissors" && computerChoice == "Rock"){
-        computerWins = computerWins + 1
-        console.log("You lost!")
-    }else if (playerChoice == "Scissors" && computerChoice == "Paper"){
-        playerWins = playerWins + 1
-        console.log("You won!")
-    }else if (playerChoice == "Scissors" && computerChoice == "Scissors"){
-        console.log("Draw!")
+
+function getResult() {
+    if (playerChoice === computerChoice) {
+        console.log("Draw!");
+    } else if (
+        (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
+        (playerChoice === 'Paper' && computerChoice === 'Rock') ||
+        (playerChoice === 'Scissors' && computerChoice === 'Paper')
+    ) {
+        playerWins++;
+        console.log("You won!");
+    } else {
+        computerWins++;
+        console.log("You lost!");
     }
     console.log(`Player wins: ${playerWins} - Computer wins: ${computerWins}`)
-    }
+    document.getElementById('player-wins').innerText = `Player:${playerWins}`
+    document.getElementById('computer-wins').innerText = `Computer:${computerWins}`
+    displayResult.innerText = `You chose ${playerChoice}, the computer chose ${computerChoice}`
+    choiceContainer.style.display = 'none';
+    playAgainButton.style.display = 'block';
+    };
 
 
-function runGame(playerChoice){
-    getPlayerChoice(playerChoice)
-    getComputerChoice() 
-    getResult()
-    console.log(`Player wins: ${playerWins} - Computer wins: ${computerWins}`)
-    let confirmReplay = confirm("Do you want to play again?")
-    if(confirmReplay == true){
-        runGame()
-    }
+function runGame(){
+    playButton.style.display = "none";
+    choiceContainer.style.display = "flex";
+}
+function tryAgain(){
+    playAgainButton.style.display = "none";
+    choiceContainer.style.display = "flex";
+}
+function showResult(){
+    displayResult.style.display = "block"
 }
 
 
