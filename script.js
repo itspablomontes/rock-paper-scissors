@@ -1,27 +1,27 @@
 let playerWins =  0;
 let computerWins = 0;
-
+let playerChoice
 let computerChoice;
-let playerChoice 
-function getPlayerChoice(){
-    playerChoice = Number(prompt("Choose an option: 1-Rock 2-Paper 3-Scissors"));
-    switch (playerChoice) {
-        case 1:
-            userChoice = "Rock"
+function getPlayerChoice(choice){
+    switch (choice) {
+        case "Rock":
+            playerChoice = "Rock"
             console.log(`You chose Rock`)
             break;
-        case 2:
-            userChoice = "Paper"
+        case "Paper":
+            playerChoice = "Paper"
             console.log(`You chose Paper`)
             break;
-        case 3:
-            userChoice = "Scissors"
+        case "Scissors":
+            playerChoice = "Scissors"
             console.log(`You chose Scissors`)
             break;
         default:
             console.log("Invalid value, please restart the page and choose a valid one")
             break;
     }
+    getComputerChoice();
+    getResult();
 }
 function getComputerChoice(){
     computerChoice = Math.floor(Math.random()* 3) + 1;
@@ -42,36 +42,37 @@ function getComputerChoice(){
 };
 
 function getResult(){
-    if(userChoice == "Rock" && computerChoice == "Rock"){
+    if(playerChoice == "Rock" && computerChoice == "Rock"){
         console.log("Draw!")
-    }else if (userChoice == "Rock" && computerChoice == "Paper"){
+    }else if (playerChoice == "Rock" && computerChoice == "Paper"){
         computerWins == computerWins + 1
         console.log("You lost!")
-    }else if (userChoice == "Rock" && computerChoice == "Scissors"){
+    }else if (playerChoice == "Rock" && computerChoice == "Scissors"){
         playerWins = playerWins + 1
         console.log("You won!")
-    }else if (userChoice == "Paper" && computerChoice == "Rock"){
+    }else if (playerChoice == "Paper" && computerChoice == "Rock"){
         playerWins = playerWins + 1
         console.log("You won!")
-    }else if (userChoice == "Paper" && computerChoice == "Paper"){
+    }else if (playerChoice == "Paper" && computerChoice == "Paper"){
         console.log("Draw!")
-    }else if (userChoice == "Paper" && computerChoice == "Scissors"){
+    }else if (playerChoice == "Paper" && computerChoice == "Scissors"){
         computerWins == computerWins + 1
         console.log("You lost!")
-    }else if (userChoice == "Scissors" && computerChoice == "Rock"){
+    }else if (playerChoice == "Scissors" && computerChoice == "Rock"){
         computerWins = computerWins + 1
         console.log("You lost!")
-    }else if (userChoice == "Scissors" && computerChoice == "Paper"){
+    }else if (playerChoice == "Scissors" && computerChoice == "Paper"){
         playerWins = playerWins + 1
         console.log("You won!")
-    }else if (userChoice == "Scissors" && computerChoice == "Scissors"){
+    }else if (playerChoice == "Scissors" && computerChoice == "Scissors"){
         console.log("Draw!")
     }
+    console.log(`Player wins: ${playerWins} - Computer wins: ${computerWins}`)
     }
 
 
-function runGame(){
-    getPlayerChoice()
+function runGame(playerChoice){
+    getPlayerChoice(playerChoice)
     getComputerChoice() 
     getResult()
     console.log(`Player wins: ${playerWins} - Computer wins: ${computerWins}`)
@@ -82,6 +83,6 @@ function runGame(){
 }
 
 
-runGame();
+//runGame();
 
 
