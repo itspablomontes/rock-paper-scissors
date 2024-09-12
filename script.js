@@ -17,9 +17,6 @@ const moveOption = document.getElementsByClassName('option')
 
 playButton.addEventListener('click', runGame)
 playAgainButton.addEventListener('click', tryAgain)
-// for(let i = 0; i < moveOption.length ; i++){
-//     moveOption[i].addEventListener('click', showResult) 
-// };
 
 function getPlayerChoice(choice){
     switch (choice) {
