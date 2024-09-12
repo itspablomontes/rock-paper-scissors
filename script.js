@@ -73,8 +73,8 @@ function getResult() {
 function showResult(){
         document.getElementById('player-wins').innerText = `Player:${playerWins}`
         document.getElementById('computer-wins').innerText = `Computer:${computerWins}`
-        resultChoices.innerText = `You chose ${playerChoice}, the computer chose ${computerChoice}`
-        resultMessage.innerText = `Result: ${resultWarning}`
+        resultChoices.innerText = `You chose ${playerChoice}, the Computer chose ${computerChoice}`
+        resultMessage.innerText = `${resultWarning}`
         choiceContainer.style.display = 'none';
         playAgainButton.style.display = 'block';
         displayResult.style.display = "flex"

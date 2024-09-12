@@ -33,6 +33,21 @@ body{
     margin-bottom: 150px;
     margin-top: 150px;
 }
+#result-container{
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    justify-content: center;
+    align-items: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+#result{
+    font-size: 50px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
 
 #rock img{
     width: 300px;
