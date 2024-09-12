@@ -1,4 +1,4 @@
-#options-container, #play-again, #result, #warning, #play-again{
+#options-container, #play-again, #result-container, #play-again{
     display: none;
 }
 
@@ -41,13 +41,25 @@ body{
 #paper img{
     width: 300px;
 }
-.choice{
+.option{
     display: flex;
     flex-direction: column;
     justify-content: center;
     text-align: center;
     font-size: 18px;
     font-weight: bold;
+}
+.option button{
+    font-weight: bold;
+    color: #F0EFF4;
+    background-color: #3188f3;
+    border-radius: 5px;
+    border: none;
+}
+.option button:hover{
+    background-color: #F0EFF4;
+    color: #3188f3;
+    scale: 1.1;
 }
 #scissors img{
     width: 300px;

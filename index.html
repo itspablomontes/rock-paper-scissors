@@ -16,20 +16,22 @@
         <div class="computer-wins" id="computer-wins">Computer: 0</div>
     </div>
     <div class="options-container" id="options-container">
-        <div id="rock" class="choice">
+        <div id="rock" class="option">
             <img src="images/rock-hand.png">
             <button id="rock-button" onclick="getPlayerChoice('Rock')">ROCK</button>
         </div>
-        <div id="paper" class="choice">
+        <div id="paper" class="option">
             <img src="images/paper-hand.png">
             <button id="paper-button" onclick="getPlayerChoice('Paper')">PAPER</button>
         </div>
-        <div id="scissors" class="choice">
+        <div id="scissors" class="option">
             <img src="images/scissors-hand.png">
             <button id="scissors-button" onclick="getPlayerChoice('Scissors')">SCISSORS</button>
         </div>
     </div>
-    <div class="result" id="result">
+    <div class="result-container" id="result-container">
+        <div id="result-choices"></div>
+        <div id="result"></div>
     </div>
     <div class="bottom-container">
         <div class="warning" id="warning">Choose your move!</div>

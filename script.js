@@ -2,57 +2,54 @@ let playerWins =  0;
 let computerWins = 0;
 let playerChoice;
 let computerChoice;
+let resultWarning;
 
 const choiceContainer = document.getElementById("options-container");
 const playButton = document.getElementById('play');
 const playAgainButton = document.getElementById('play-again');
-const displayChoices = document.getElementById('choices');
-const displayResult = document.getElementById('result')
+const displayResult = document.getElementById('result-container')
+const resultChoices = document.getElementById('result-choices')
+const resultMessage = document.getElementById('result')
 const warningMessage = document.getElementById('warning')
-const moveChoice = document.getElementsByClassName('choice')
+const moveOption = document.getElementsByClassName('option')
+
 
 
 playButton.addEventListener('click', runGame)
 playAgainButton.addEventListener('click', tryAgain)
-for(let i = 0; i < moveChoice.length ; i++){
-    moveChoice[i].addEventListener('click', showResult) 
-};
+// for(let i = 0; i < moveOption.length ; i++){
+//     moveOption[i].addEventListener('click', showResult) 
+// };
 
 function getPlayerChoice(choice){
     switch (choice) {
         case "Rock":
             playerChoice = "Rock"
-            console.log(`You chose Rock`)
             break;
         case "Paper":
             playerChoice = "Paper"
-            console.log(`You chose Paper`)
             break;
         case "Scissors":
             playerChoice = "Scissors"
-            console.log(`You chose Scissors`)
             break;
         default:
-            console.log("Invalid value, please restart the page and choose a valid one")
             break;
     }
     getComputerChoice();
     getResult();
+    showResult();
 };
 function getComputerChoice(){
     computerChoice = Math.floor(Math.random()* 3) + 1;
     switch(computerChoice){
         case 1:
             computerChoice = "Rock"
-            console.log(`The computer chose ${computerChoice}`)
             break
         case 2:
             computerChoice = "Paper"
-            console.log(`The computer chose ${computerChoice}`)
             break
         case 3:
             computerChoice = "Scissors"
-            console.log(`The computer chose ${computerChoice}`)
             break
     }
 };
@@ -60,25 +57,30 @@ function getComputerChoice(){
 
 function getResult() {
     if (playerChoice === computerChoice) {
-        console.log("Draw!");
+        resultWarning = "Draw!";
     } else if (
         (playerChoice === 'Rock' && computerChoice === 'Scissors') ||
         (playerChoice === 'Paper' && computerChoice === 'Rock') ||
         (playerChoice === 'Scissors' && computerChoice === 'Paper')
     ) {
         playerWins++;
-        console.log("You won!");
+        resultWarning = "You Won!"
     } else {
         computerWins++;
-        console.log("You lost!");
+        resultWarning = "You Lost!";
     }
-    console.log(`Player wins: ${playerWins} - Computer wins: ${computerWins}`)
-    document.getElementById('player-wins').innerText = `Player:${playerWins}`
-    document.getElementById('computer-wins').innerText = `Computer:${computerWins}`
-    displayResult.innerText = `You chose ${playerChoice}, the computer chose ${computerChoice}`
-    choiceContainer.style.display = 'none';
-    playAgainButton.style.display = 'block';
     };
+function showResult(){
+        document.getElementById('player-wins').innerText = `Player:${playerWins}`
+        document.getElementById('computer-wins').innerText = `Computer:${computerWins}`
+        resultChoices.innerText = `You chose ${playerChoice}, the computer chose ${computerChoice}`
+        resultMessage.innerText = `Result: ${resultWarning}`
+        choiceContainer.style.display = 'none';
+        playAgainButton.style.display = 'block';
+        displayResult.style.display = "flex"
+        warningMessage.style.display = "none"
+    }
+
 
 
 function runGame(){
@@ -89,11 +91,10 @@ function runGame(){
 function tryAgain(){
     displayResult.style.display = "none"
     playAgainButton.style.display = "none";
+    warningMessage.style.display = "flex"
     choiceContainer.style.display = "flex";
 }
-function showResult(){
-    displayResult.style.display = "flex"
-}
+
 
 
 //runGame();
