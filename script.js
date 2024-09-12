@@ -10,10 +10,14 @@ const displayChoices = document.getElementById('choices');
 const displayResult = document.getElementById('result')
 const warningMessage = document.getElementById('warning')
 const timeCounterMessage = document.getElementById('time-counter')
+const moveChoice = document.getElementsByClassName('choice')
 
 
 playButton.addEventListener('click', runGame)
 playAgainButton.addEventListener('click', tryAgain)
+for(let i = 0; i < moveChoice.length ; i++){
+    moveChoice[i].addEventListener('click', showResult) 
+};
 
 function getPlayerChoice(choice){
     switch (choice) {
@@ -81,13 +85,17 @@ function getResult() {
 function runGame(){
     playButton.style.display = "none";
     choiceContainer.style.display = "flex";
+    warningMessage.style.display = "flex";
+    timeCounterMessage.style.display = "flex";
 }
 function tryAgain(){
+    displayResult.style.display = "none"
     playAgainButton.style.display = "none";
     choiceContainer.style.display = "flex";
 }
 function showResult(){
-    displayResult.style.display = "block"
+    displayResult.style.display = "flex"
+
 }
 
 
