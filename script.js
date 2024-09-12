@@ -9,7 +9,6 @@ const playAgainButton = document.getElementById('play-again');
 const displayChoices = document.getElementById('choices');
 const displayResult = document.getElementById('result')
 const warningMessage = document.getElementById('warning')
-const timeCounterMessage = document.getElementById('time-counter')
 const moveChoice = document.getElementsByClassName('choice')
 
 
@@ -86,7 +85,6 @@ function runGame(){
     playButton.style.display = "none";
     choiceContainer.style.display = "flex";
     warningMessage.style.display = "flex";
-    timeCounterMessage.style.display = "flex";
 }
 function tryAgain(){
     displayResult.style.display = "none"
@@ -95,7 +93,6 @@ function tryAgain(){
 }
 function showResult(){
     displayResult.style.display = "flex"
-
 }
 
 
