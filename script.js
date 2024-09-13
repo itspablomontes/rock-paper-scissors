@@ -11,6 +11,7 @@ const displayResult = document.getElementById('result-container')
 const resultChoices = document.getElementById('result-choices')
 const resultMessage = document.getElementById('result')
 const warningMessage = document.getElementById('warning')
+const playWarningMessage = document.getElementById('play-warning')
 const moveOption = document.getElementsByClassName('option')
 
 
@@ -76,17 +77,32 @@ function showResult(){
         playAgainButton.style.display = 'block';
         displayResult.style.display = "flex"
         warningMessage.style.display = "none"
+        switch(resultWarning){
+            case "You Won!":
+                resultMessage.style.color = "greenyellow"
+                break
+            case "You Lost!":
+                resultMessage.style.color = "red"
+                break
+            case "Draw!":
+                resultMessage.style.color = "#F0EFF4"
+                break
+            default:
+                break    
+        }
     }
 
 
 
 function runGame(){
     playButton.style.display = "none";
+    playWarningMessage.style.display = "none";
     choiceContainer.style.display = "flex";
     warningMessage.style.display = "flex";
 }
 function tryAgain(){
     displayResult.style.display = "none"
+    playWarningMessage.style.display = "none";
     playAgainButton.style.display = "none";
     warningMessage.style.display = "flex"
     choiceContainer.style.display = "flex";
